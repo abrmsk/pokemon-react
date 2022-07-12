@@ -1,0 +1,20 @@
+
+.table-info-detalis {
+  table, th, td {
+    border: 1px solid black;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+
+    th {
+      font-weight: 700;
+    }
+    th, td {
+      padding: 2px 2px 4px 8px;
+    }
+
+  }
+}

@@ -1,0 +1,16 @@
+.button-section {
+  .button {
+    position: fixed;
+    width: 50px;
+    height: 56px;
+    top: 0;
+    z-index: 100;
+
+    &.next {
+      right: 0;
+    }
+    &.prev {
+      left: 0;
+    }
+  }
+}

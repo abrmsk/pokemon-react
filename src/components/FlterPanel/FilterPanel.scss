@@ -1,0 +1,184 @@
+
+.filter-panel-box {
+  width: 100%;
+
+  &.animation {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    margin-top: 56px;
+
+    &.open-filter-panel {
+      animation-name: panelOpenAtimate;
+      animation-duration: 500ms;
+    }
+    &.close-filter-panel {
+      animation-name: panelCloseAtimate;
+      animation-duration: 400ms;
+      transform: translate(0, -550px);
+    }
+  }
+}
+
+@keyframes panelOpenAtimate {
+  0% { transform: translate(0, -550px);}
+  100% { transform: translate(0, 0);}
+}
+@keyframes panelCloseAtimate {
+  0% { transform: translate(0, 0);}
+  100% { transform: translate(0, -550px);}
+}
+
+
+.filter-panel-container.grid {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: calc(30% - 12.5px) calc(20% - 12.5px) calc(20% - 12.5px) calc(11% - 12.5px) calc(11% - 12.5px) calc(8% - 12.5px);
+  grid-template-areas: "name stat type page sort butt";
+  grid-gap: 15px;
+  box-sizing: border-box;
+  align-content: stretch;
+
+  .filter-element {
+    &.name { grid-area: name;}
+    &.stat { grid-area: stat;}
+    &.type { grid-area: type;}
+    &.button { grid-area: butt;}
+    &.per-page {
+      grid-area: page;
+
+      > div > div > div > div button {
+        display: none;
+      }
+    }
+    &.sort {
+      grid-area: sort;
+
+      > div > div > div > div button:last-child {
+        display: none;
+      }
+    }
+
+    // del padding for conteiner of input
+    &.sort, &.per-page {
+      > div > div > div {
+        padding: 0 !important;
+        
+        input[type=text] {
+          width: 100%;
+          height: 100%;
+          padding: 12px 10px 8px 10px;
+        }
+      }
+    }
+
+    .form-control { width: 100%;}
+
+    &.stat {
+      position: relative;
+
+      .stat-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid #cc1a1a;
+        padding: 5px;
+        background: white;
+        color: #cc1a1a;
+        border-radius: 4px;
+        min-width: 100%;
+        text-align: center;
+        font-size: 15px;
+        line-height: 20px;
+        z-index: 90;
+      }
+      .loading-progressbar-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        
+        .loading-progressbar {
+          border-radius: 4px;
+          width: 38%;
+          height: 100%;
+          background: #ff7f004a;
+        }
+        .loading-info {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+
+// MEDIA
+@media screen and (max-width: 1535px) {
+
+}
+@media screen and (max-width: 950px) {
+  .filter-panel-container.grid {
+    grid-gap: 14px;
+  }
+}
+@media screen and (max-width: 920px) {
+  .filter-panel-container.grid {
+    grid-gap: 13px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .filter-panel-container.grid {
+    grid-template-columns: 15% 22% 2% 10% 2% 10% 2% 22% 15%;
+    grid-template-areas:
+      ". name name name name name name name ."
+      ". type type type  .   stat stat stat ."
+      ". page  .   sort sort sort   .  butt .";
+
+    grid-gap: 15px 0;
+    padding-bottom: 23px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .filter-panel-container.grid {
+    grid-template-columns: 5% 29% 2% 28% 2% 29% 5%;
+    grid-template-areas:
+      ". name name name . page ."
+      ". type . stat . sort ."
+      ". butt butt butt butt butt .";
+  }
+}
+@media screen and (max-width: 500px) {
+  .filter-panel-container.grid {
+    grid-template-areas:
+      ". name name name . page ."
+      ". type type type . sort ."
+      ". stat stat stat . butt .";
+  }
+}
+@media screen and (max-width: 450px) {
+  // .filter-panel-box.animation {
+  //   margin-top: -105px;
+  // }
+
+  .filter-panel-container.grid {
+    grid-template-columns: 3% 94% 3%;
+    grid-template-areas:
+      ". name ."
+      ". type ."
+      ". stat ."
+      ". page ."
+      ". sort ."
+      ". butt .";
+    
+    grid-gap: 25px 0;
+    padding-bottom: 30px;
+  }
+}

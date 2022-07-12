@@ -1,0 +1,46 @@
+// "black" | "blue" | "brown" | "gray" | "green" | "pink" | "purple" | "red" | "white" | "yellow";
+
+@mixin color-black {
+  background: rgb(0,0,0);
+  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(91,91,91,1) 42%, rgba(255,255,255,1) 100%, rgba(196,196,196,1) 100%);
+}
+@mixin color-blue {
+  background: rgb(96, 152, 255);
+  background: radial-gradient(circle, rgb(0, 0, 255) 0%, rgba(255, 255, 255, 0) 100%);
+}
+@mixin color-green {
+  background: rgb(132, 214, 84);
+  background: radial-gradient(circle, rgb(123, 255, 22) 0%, rgba(255, 255, 255, 0) 100%);
+}
+@mixin color-pink {
+  background: rgb(255, 213, 224);
+  background: radial-gradient(circle,  rgb(252, 172, 204) 0%, rgba(255,201,212,0) 100%);
+}
+@mixin color-purple {
+  background: rgb(228, 86, 228);
+  background: radial-gradient(circle, rgb(238, 0, 255) 0%, rgba(255,201,223,0) 100%);
+}
+@mixin color-red {
+  background: rgb(236, 133, 93);
+  background: radial-gradient(circle, rgba(219, 19, 19, 0.842) 0%, rgba(244,34,34,0) 100%);
+}
+@mixin color-white {
+  background: rgb(226, 226, 226);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 72%, rgba(162,162,162,1) 100%, rgba(255,255,255,1) 100%);
+}
+@mixin color-yellow {
+  background: rgb(253, 253, 119);
+  background: radial-gradient(circle, rgb(251, 255, 0) 0%, rgba(242,226,70,0) 100%);
+}
+
+@mixin selector-names-by-color-name {
+  &.black {@include color-black;}
+  &.blue {@include color-blue;}
+  &.green {@include color-green;}
+  &.pink {@include color-pink;}
+  &.purple {@include color-purple;}
+  &.red {@include color-red;}
+  &.white {@include color-white;}
+  &.yellow {@include color-yellow;}
+}
+
